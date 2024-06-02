@@ -8,7 +8,7 @@ SearchBox.propTypes = {
 export default function SearchBox({ handleSearchTerm }) {
 
     return (
-        <div className="search-box p-5 bg-white rounded-xl w-8/12">
+        <div className=" p-5 bg-white rounded-xl w-8/12 fixed top-40 right-64">
             <input
                 autoFocus={true}
                 type="text"

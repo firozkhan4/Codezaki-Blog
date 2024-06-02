@@ -30,6 +30,7 @@ export async function GET_ALL_POSTS(totalPost) {
           }
           content{
             html
+            markdown
           }
           
         }

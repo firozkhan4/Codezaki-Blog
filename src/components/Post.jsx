@@ -8,7 +8,7 @@ Post.propTypes = {
 }
 
 // Post component definition
-export default function Post({ post }) {
+export default function Post({ post, onClick }) {
     // Destructuring the post object to extract necessary fields
     const { title, brief, coverImage, readTimeInMinutes, publishedAt } = post.node;
 
@@ -16,7 +16,7 @@ export default function Post({ post }) {
     const formattedDate = format(new Date(publishedAt), 'MMMM d, yyyy');
 
     return (
-        <div className="grid gap-3 lg:w-4/5">
+        <div className="grid gap-3 lg:w-4/5 cursor-pointer" onClick={onClick} >
             <div className="flex justify-center w-5/5 h-5/5 ">
                 <img
                     src={coverImage?.url} // Using coverImage URL if available
@@ -24,16 +24,16 @@ export default function Post({ post }) {
                     className="rounded-lg overflow-hidden w-full h-full"
                 />
             </div>
-            <div className="grid gap-2">
+            <div className="grid gap-3">
                 <h2 className="text-3xl font-bold">{title}</h2>
-                <span className="flex items-center gap-3 text-gray-500 text-sm">
+                <span className="flex items-center gap-3 text-gray-400 text-sm">
                     <p>{formattedDate}</p>
                     <span className="flex items-center gap-2">
                         <IoBookOutline />
                         <p>{readTimeInMinutes} min read</p>
                     </span>
                 </span>
-                <div className="text-lg font-medium text-gray-600">
+                <div className="text-lg font-medium text-gray-400">
                     <p>{brief}</p>
                 </div>
             </div>
